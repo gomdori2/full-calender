@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.13/index.global.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // div의 id : calendar 의 태그를 가져온 후
+        var calendarEl = document.getElementById("calendar");
+        // 생성자 함수로 사용
+        // swiper랑 비슷한데 이벤트 골라내야함.
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: "dayGridMonth",
+          dateClick: function () {
+            console.log(this);
+          },
+        });
+        // 날짜를 눌렀을 때 해당 날짜의 정보 가져옴.
+        // date : 날짜
+        // dateStr
+        // allDay  :
+        // dayEl   : js로 컨트롤 할 DOM 태그
+        // jsEvent : 무슨 이벤트 인지 = mouse등등
+        // view    : 이건 더 알아봐야함.
+        // clicked on
+        calendar.on("dateClick", function (info) {
+          for (a in info) {
+            console.log("info", a);
+          }
+          for (a in info.view) {
+            console.log("view", a);
+          }
+
+          info.dayEl.innerHTML = "asdfasfasdf";
+          console.log("clicked on " + info.date);
+          console.log("clicked on " + info.dateStr);
+          console.log("clicked on " + info.allDay);
+          console.log("clicked on " + info.dayEl);
+          console.log("clicked on " + info.view);
+        });
+        calendar.render();
+      });
+    </script>
+    <style type="text/css">
+      .wrap {
+        width: 1920px;
+      }
+      .inner {
+        margin: 0 auto;
+        width: 1120px;
+        background-color: bisque;
+      }
+      .header-inner {
+        display: flex;
+        gap: 50px;
+      }
+      #calendar {
+        width: 1000px !important;
+        height: 700px !important;
+        margin: 0 auto;
+        margin-top: 100px;
+      }
+      .footer {
+        width: 100%;
+        height: 300px;
+        background-color: aqua;
+      }
+      .footer-inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .footer-left {
+        width: 50%;
+        height: 100%;
+        background-color: red;
+      }
+      .footer-right {
+        width: 50%;
+        height: 100%;
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="inner">
+        <header>
+          <div class="header-inner">
+            <div>Logo</div>
+            <div>메뉴</div>
+            <div>아이콘</div>
+          </div>
+        </header>
+        <main>
+          <div id="calendar"></div>
+        </main>
+        <footer class="footer">
+          <div class="footer-inner">
+            <div class="footer-left">
+              <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+            <div class="footer-right">
+              <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
