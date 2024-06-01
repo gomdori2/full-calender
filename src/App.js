@@ -1,7 +1,12 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function App() {
-  return <div>asdasd</div>;
+  return (
+    <>
+      <Link to="/rc"></Link>
+      <Link to="/ReactSpinner"></Link>
+    </>
+  );
 }
 
 export default App;
